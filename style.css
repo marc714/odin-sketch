@@ -1,0 +1,32 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 800px;
+    flex-wrap: wrap;
+}
+
+.blocks {
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+}
+
+/* .blocks:hover {
+    background-color: black;
+} */
+
+.mycolor {
+    background-color:black;
+}
+
+.divtemp {
+    background-color: orange;
+    display: flex;
+    height: 105px;
+    width: 105px;
+}
