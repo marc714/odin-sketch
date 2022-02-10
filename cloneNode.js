@@ -16,7 +16,7 @@ function gridLoad(squares){
               let opacity = window.getComputedStyle(clonedDiv).getPropertyValue("opacity");
               let parseOpacity = parseFloat(opacity);
               let newOpacity = parseOpacity+0.2;
-              let result = clonedDiv.style.opacity = newOpacity;
+              clonedDiv.style.opacity = newOpacity;
               });
             };
       };     
