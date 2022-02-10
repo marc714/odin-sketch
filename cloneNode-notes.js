@@ -1,10 +1,12 @@
-const container = document.querySelector('.container');
+//const container = document.querySelector('.container');
 const div = document.createElement('div');
 div.classList.add("blocks");
 
 // appendChild does not insert copies. You can use cloneNode to make copies. https://forum.freecodecamp.org/t/why-my-for-loop-doesnt-repeat-the-div-10-times/340676
 // also here: https://stackoverflow.com/questions/12730824/appendchild-in-for-loop-only-adds-1-child
 // NOTE: Cloning a node copies all of its attributes and their values, including intrinsic (inline) listeners. It does not copy event listeners added using addEventListener() or those assigned to element properties (e.g., node.onclick = someFunction).
+// https://stackoverflow.com/questions/15408394/how-to-copy-a-dom-node-with-event-listeners
+// Delegation https://pawelgrzybek.com/cloning-dom-nodes-and-handling-attached-events/
 
 function gridLoad(){
     const container = document.querySelector('.container');
@@ -43,6 +45,7 @@ blocksHolderVariable.forEach(square => {
 });
 
 reset.addEventListener('click', resetGrid);
+const container = document.querySelector('.container');
 function resetGrid(){
     blocksHolderVariable.forEach(element => element.style.backgroundColor = "white");
     

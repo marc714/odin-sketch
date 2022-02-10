@@ -6,7 +6,7 @@
 
 .container {
     display: flex;
-    width: 800px;
+    width: 500px;
     flex-wrap: wrap;
 }
 
