@@ -1,25 +1,32 @@
 // Clone Node doesn't copy event handlers.
-
 const container = document.querySelector('.container');
 const div = document.createElement('div');
 const reset = document.querySelector('#reset');
 div.classList.add("blocks");
 reset.addEventListener('click', resetGrid);
+// mouse controls
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 function gridLoad(squares){
     for (let i=0; i<squares; i++){  // row
         for (let j=0; j<squares; j++){ // column
             let clonedDiv = container.appendChild(div.cloneNode());
-            clonedDiv.addEventListener('mouseover', function(e){
-              e.target.style.backgroundColor = "pink";
-              //opacity bonus
-              let opacity = window.getComputedStyle(clonedDiv).getPropertyValue("opacity");
-              let parseOpacity = parseFloat(opacity);
-              let newOpacity = parseOpacity+0.2;
-              clonedDiv.style.opacity = newOpacity;
-              });
-            };
-      };     
+            
+            ['mouseover', 'mousedown'].forEach(action => {
+                clonedDiv.addEventListener(action, function(e){
+                    if (e.type === 'mouseover' && !mouseDown) return; // if mouse up
+                    e.target.style.backgroundColor = "pink";
+                    //opacity bonus
+                    let opacity = window.getComputedStyle(clonedDiv).getPropertyValue("opacity");
+                    let parseOpacity = parseFloat(opacity);
+                    let newOpacity = parseOpacity+0.1;
+                    clonedDiv.style.opacity = newOpacity;
+                });
+            });  
+        };
+    };     
 };
 
 function resetGrid(){ 
